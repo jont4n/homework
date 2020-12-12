@@ -1,34 +1,41 @@
 
 public class Neuron {
 	
-	private double inSignal;
+	private double inSignal[];
 	private double outSignal;
-	private double wtSignal;
+	private double wtSignal[];
 		
 	public double getOutSignal() { return outSignal;}
-	public double getWtSignal() { return wtSignal;}
-	public double getInSignal() { return inSignal;}
+	//public double geAtWtSignal() { return wtSignal;}
+	//public double getInSignal() { return inSignal;}
 	
-	public void setInSignal(double count) {
+	public void setInSignal(double count[]) {
 		inSignal = count;
 	}
 	
-	public void setWtSignal(double count) {
+	public void setWtSignal(double count[]) {
 		wtSignal = count;
 	}
 	
 	public void setOutSignal() {
-		 outSignal = inSignal*wtSignal;
+		
+		double sum = 0;
+		for(int i=0; i<wtSignal.length; i++)
+		{
+			sum+=inSignal[i]*wtSignal[i];
+		}
+		outSignal=sum;
+		System.out.println(sum);
 	}
 	
 	public void print() {
-		System.out.format("Ñèãíàë %.1f  Âåñ %.1f%n",inSignal,wtSignal);
+		System.out.format("Ð¡Ð¸Ð³Ð½Ð°Ð» %.1f  Ð’ÐµÑ %.1f%n",inSignal,wtSignal);
 	}
 	
 	public double res() {
-		if(outSignal>=0.5)
-			return outSignal;
+		if(outSignal>=1)
+			return outSignal=1;
 		else
-			return 0;
+			return outSignal=0;
 	}
 }
