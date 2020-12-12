@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Program {
 	
@@ -8,29 +7,36 @@ public class Program {
 		Neuron sun = new Neuron();
 		Neuron friend = new Neuron();
 		
+		double inS1[]= {1};
+		double outS1[]= {1};
+		double inS2[]= {0};
+		double outS2[]= {1};
+		double inS3[]= {0};
+		double outS3[]= {1};
 		Neuron outNeuron = new Neuron();		
 		//
-		vodka.setInSignal(1);
-		vodka.setWtSignal(0.5);
+		vodka.setInSignal(inS1);
+		vodka.setWtSignal(outS1);
 		vodka.setOutSignal();
-		
-		sun.setInSignal(0);
-		sun.setWtSignal(0.5);
+
+		sun.setInSignal(inS2);
+		sun.setWtSignal(outS2);
 		sun.setOutSignal();
 		
-		friend.setInSignal(1);
-		friend.setWtSignal(0.5);
+		friend.setInSignal(inS3);
+		friend.setWtSignal(outS3);
 		friend.setOutSignal();
 		//
-		double sum = vodka.res() + sun.res() + friend.res();
+		double sum[] = {vodka.res(), sun.res(), friend.res()};
+		double hak[] = {0.5,0.5,0.5};
 		//System.out.println(sum);
 		outNeuron.setInSignal(sum);
-		outNeuron.setWtSignal(1);
+		outNeuron.setWtSignal(hak);
 		outNeuron.setOutSignal();
-		//System.out.println(outNeuron.res());
+		System.out.println(outNeuron.res());
 		if(outNeuron.res() >= 1)
-			System.out.println("Пездуй");
+			System.out.println("РџРµР·РґСѓР№");
 		else
-			System.out.println("Не пездуй");
+			System.out.println("РќРµ РїРµР·РґСѓР№");
 	}
 }
